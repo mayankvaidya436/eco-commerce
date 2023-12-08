@@ -1,8 +1,17 @@
-import React from "react";
+import React,{useContext} from "react";
 import ProductArr from "./ProductArr";
-
+import CartContext from "../Store/cart-context";
 const Product = () => {
-  return (
+  
+    const cartctx = useContext(CartContext);
+    const addToCart = (product) => {
+    const quantity = 1;
+    const updatedProduct = { ...product, quantity: quantity };
+    cartctx.addItem(updatedProduct);
+    console.log("Added to Cart:", updatedProduct);
+    console.log("Updated Cart Items:", cartctx.items);
+  };
+  return(
     <>
       <div className="container mx-auto">
         <div className="row mx-auto" style={{ width: "90%" }}>
@@ -29,7 +38,7 @@ const Product = () => {
                   <p className=" float-start">
                     <strong>Price: ${product.price}</strong>
                   </p>
-                  <button className="btn btn-primary float-end">
+                  <button className="btn btn-primary float-end" onClick={()=>addToCart(product)}>
                     Add to Cart
                   </button>
                 </div>
@@ -39,7 +48,7 @@ const Product = () => {
         </div>
       </div>
     </>
-  );
+  )   
 };
 
 export default Product;
