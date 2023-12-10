@@ -3,6 +3,7 @@ import ProductArr from "./ProductArr";
 import CartContext from "../Store/cart-context";
 const Product = () => {
   
+  
     const cartctx = useContext(CartContext);
     const addToCart = (product) => {
     const quantity = 1;

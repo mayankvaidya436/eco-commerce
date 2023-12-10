@@ -1,17 +1,24 @@
 
 import './App.css';
-import Header from './Components/Layout/Header';
-import Product from './Components/Product/Product';
-import Footer from './Components/Layout/Footer';
-import CartProvider from './Components/Store/CartProvider';
 
+import Product from './Components/Product/Product';
+
+import CartProvider from './Components/Store/CartProvider';
+import RootLayout from './Pages/Root';
+import About from './Pages/About';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { path: "/", element: <Product/> },
+      { path: "/About", element: <About /> },
+    ],
+  },
+]);
 function App() {
-  return ( <CartProvider>
-     <Header/>
-     <Product/>
-     <Footer/>
-    </CartProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

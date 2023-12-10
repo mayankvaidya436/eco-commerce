@@ -25,7 +25,7 @@ const CartProvider = (props) => {
       };
     });
   };
-
+   console.log(cartState.items)
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,

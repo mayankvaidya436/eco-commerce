@@ -4,7 +4,7 @@ import { Modal, Button } from 'react-bootstrap';
 
 const Cart = () => {
   const cartCtx=useContext(CartContext)
-
+   console.log("after cart", cartCtx.items)
   const [showModal, setShowModal] = useState(false);
 
   const handleShow = () => setShowModal(true);
@@ -25,7 +25,7 @@ const Cart = () => {
       <h5 className="mb-0 text-light me-2">Cart</h5>
       
       <span className="badge bg-primary " onClick={handleShow}>
-        {cartCtx.length}
+        {cartCtx.items.length}
       </span>
 
       <Modal show={showModal} onHide={handleClose}>
