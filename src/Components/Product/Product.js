@@ -1,6 +1,7 @@
 import React,{useContext} from "react";
 import ProductArr from "./ProductArr";
 import CartContext from "../Store/cart-context";
+import GenericComponent from "../Layout/GenericComponent";
 const Product = () => {
   
   
@@ -14,6 +15,7 @@ const Product = () => {
   };
   return(
     <>
+       <GenericComponent/>
       <div className="container mx-auto">
         <div className="row mx-auto" style={{ width: "90%" }}>
           {ProductArr.map((product, index) => (
